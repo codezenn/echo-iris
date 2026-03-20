@@ -29,9 +29,9 @@ Echo IRIS is intended to serve as a multi-semester platform. Future ECE 202 team
 
 | Member | Role |
 |--------|------|
-| Marc | Project Lead on AI agent, voice pipeline, software architecture |
-| Giovanni | Lead on 3D Design & Printing speaker mount, Pi enclosure, LED housing |
-| Obaid | Lead on Hardware Jeep and Pi assembly, wiring, GPIO, power integration |
+| Marc S | Project Lead on AI agent, voice pipeline, software architecture |
+| Giovanni G | Lead on 3D Design & Printing speaker mount, Pi enclosure, LED housing |
+| Obaid A | Lead on Hardware Jeep and Pi assembly, wiring, GPIO, power integration |
 
 ---
 
