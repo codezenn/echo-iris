@@ -117,7 +117,7 @@ For a complete from-scratch setup on a Raspberry Pi 5 (8GB), see [`docs/setup_gu
 ### Quick Start (if already configured)
 
 ```bash
-cd /home/penrose
+cd /home/software
 python3 echo_iris.py
 ```
 
