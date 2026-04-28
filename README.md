@@ -43,9 +43,9 @@ playful." Everything runs locally on the Pi with no cloud dependency.
 
 | Member          | Role                                                   |
 |-----------------|--------------------------------------------------------|
-| Marc Sibaja     | Project lead. AI agent, voice pipeline, software       |
-| Giovanni Guerra | 3D design and printing. Speaker mount, Pi enclosure    |
-| Obaid Almutairi | Hardware. Jeep assembly, wiring, GPIO, power           |
+| Marc S.     | Project lead. AI agent, voice pipeline, software       |
+| Giovanni G. | 3D design and printing. Speaker mount, Pi enclosure    |
+| Obaid A. | Hardware. Jeep assembly, wiring, GPIO, power           |
 
 ## Key Features
 
