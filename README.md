@@ -1,6 +1,6 @@
 # Echo IRIS
 
-A voice-interactive AI agent on a mini-Jeep platform. Built for ECE 202 at
+A voice interactive AI agent on a mini-Jeep platform. Built for ECE 202 at
 Colorado State University, Spring 2026. This is the end-of-semester archive
 of the Group 35 deliverable.
 
@@ -16,7 +16,7 @@ Intelligent Raspberry-Pi Imaging System.
 | Letter | Meaning      |
 |--------|--------------|
 | I      | Intelligent  |
-| R      | Raspberry-Pi |
+| R      | Raspberry Pi |
 | I      | Imaging      |
 | S      | System       |
 
@@ -24,9 +24,9 @@ Intelligent Raspberry-Pi Imaging System.
 
 Walk up to the Jeep, say "hello IRIS," and ask a question. IRIS hears you
 through a wireless lavalier mic, recognizes your speech locally with Vosk,
-checks your question against a fast-path keyword dictionary for common demo
+checks your question against a fast path keyword dictionary for common demo
 questions, and either responds instantly or hands the question to a local
-qwen3.5:2b language model running through Ollama. Piper text-to-speech
+qwen3.5:2b language model running through Ollama. Piper text to speech
 voices the answer through a USB sound card. Throughout the entire session,
 a Sony IMX500 AI camera runs YOLO11n object detection on its on-camera
 neural processor and shows visitors a live preview window with bounding
@@ -49,22 +49,22 @@ playful." Everything runs locally on the Pi with no cloud dependency.
 
 ## Key Features
 
-Wake-word listening with conversation mode. After IRIS responds, the agent
-stays in listening mode for 12 seconds so visitors can ask follow-up
-questions without re-saying the wake word.
+Wake word listening with conversation mode. After IRIS responds, the agent
+stays in listening mode for 12 seconds so visitors can ask follow up
+questions without resaying the wake word.
 
 Local speech recognition via Vosk at 48 kHz. No internet required.
 
 Local language model. qwen3.5:2b runs through Ollama on the Pi. The system
 prompt and DEMO_ANSWERS keyword fast path handle approximately 80 percent
-of expected demo-day questions in under 100 milliseconds. The LLM handles
+of expected demo day questions in under 100 milliseconds. The LLM handles
 everything else.
 
 Concurrent live object detection. YOLO11n runs continuously on the Sony
-IMX500 on-camera neural processor at zero Pi CPU cost. Visitors see
+IMX500 on camera neural processor at zero Pi CPU cost. Visitors see
 themselves highlighted with bounding boxes throughout the conversation.
 
-On-demand LLM vision. Ask "what do you see" and the qwen3.5:2b vision model
+On demand LLM vision. Ask "what do you see" and the qwen3.5:2b vision model
 captures a frame and describes the scene in spoken English.
 
 Three personality modes. Professional, playful, and pirate. Switch by voice
@@ -121,7 +121,7 @@ For the chassis specifications and the spec source URL, see
 |-----------------------|--------------------------------------------|
 | Speech recognition    | Vosk (small English model, offline)        |
 | Language model        | qwen3.5:2b via Ollama                      |
-| Text-to-speech        | Piper, en_GB-vctk-medium voice             |
+| Text to speech        | Piper, en_GB-vctk-medium voice             |
 | Object detection      | YOLO11n on Sony IMX500 NPU                 |
 | Vision (on demand)    | qwen3.5:2b vision via Ollama               |
 | Camera interface      | Picamera2, rpicam-still                    |
@@ -138,12 +138,12 @@ that flows from YOLO11, see [ATTRIBUTIONS.md](ATTRIBUTIONS.md).
 Echo IRIS supports two hardware targets with two separate scripts.
 
 **8GB Pi build** (`echo_iris_8gb.py`). The original development Pi.
-DEMO_MODE keyword-only path with no LLM at runtime, used for fallback and
-crash-proof demonstrations. Setup steps in
+DEMO_MODE keyword only path with no LLM at runtime, used for fallback and
+crash proof demonstrations. Setup steps in
 [docs/setup_guide_8gb.md](docs/setup_guide_8gb.md).
 
-**16GB Pi build** (`echo_iris_16gb.py`). The production demo-day script.
-Full multi-module architecture with LLM, vision, personalities, scoreboard,
+**16GB Pi build** (`echo_iris_16gb.py`). The production demo day script.
+Full multi module architecture with LLM, vision, personalities, scoreboard,
 and easter eggs. Setup steps in
 [docs/setup_guide_16gb.md](docs/setup_guide_16gb.md).
 
@@ -196,9 +196,9 @@ echo-iris/
 
 ## Getting Started
 
-For a complete from-scratch setup on a fresh Raspberry Pi, follow the setup
+For a complete from scratch setup on a fresh Raspberry Pi, follow the setup
 guide that matches your build target. The 8GB guide is the simpler path and
-covers the demo-mode-only configuration. The 16GB guide covers the full
+covers the demo mode only configuration. The 16GB guide covers the full
 production stack including Ollama, the qwen3.5:2b model pull, the IMX500
 firmware setup, the audio device verification routine, and the Arduino LED
 bridge flashing.
@@ -214,8 +214,8 @@ cd ~/echo-iris/software
 ./run.sh
 ```
 
-The `run.sh` wrapper auto-restarts the agent after Ctrl+C. To run the
-script directly without auto-restart, use `python3 echo_iris_16gb.py` for
+The `run.sh` wrapper auto restarts the agent after Ctrl+C. To run the
+script directly without auto restart, use `python3 echo_iris_16gb.py` for
 the production build or `python3 echo_iris_8gb.py` for the 8GB build.
 
 IRIS will play a startup sound, speak a greeting, and begin listening for
@@ -227,10 +227,10 @@ its wake word.
 deferred, and known issues.
 
 [ATTRIBUTIONS.md](ATTRIBUTIONS.md). Upstream open source dependencies and
-their licenses, including the AGPL-3.0 interaction from YOLO11.
+their licenses, including the AGPL 3.0 interaction from YOLO11.
 
 [docs/architecture.md](docs/architecture.md). System architecture, module
-walkthrough, design decisions, and future-work invitations.
+walkthrough, design decisions, and future work invitations.
 
 [docs/troubleshooting.md](docs/troubleshooting.md). Audio routing, vision
 recovery, LLM latency, undervoltage diagnosis, Arduino cable traps.
@@ -262,32 +262,32 @@ documented but not built.
 
 Autonomous driving. The combination of YOLO11n object detection, the
 existing motor driver pattern from the green Jeep, and the voice control
-layer is the foundation for an autonomous lane-following or
-obstacle-avoidance demo.
+layer is the foundation for an autonomous lane following or
+obstacle avoidance demo.
 
-Faster LLM. The current qwen3.5:2b takes 28 to 41 seconds for free-form
-questions. A text-only model swap (gemma3:1b was researched but not
+Faster LLM. The current qwen3.5:2b takes 28 to 41 seconds for free form
+questions. A text only model swap (gemma3:1b was researched but not
 benchmarked) is the most likely speed improvement.
 
 WS2812B addressable LED strip. The original plan called for an addressable
 strip, which failed during installation the day before demo and was
 replaced with discrete LEDs. Returning to addressable LEDs is straightforward.
 
-RAG re-enable. The `iris_rag.py` module is shipped but disabled at runtime
+RAG reenable. The `iris_rag.py` module is shipped but disabled at runtime
 because of ChromaDB ARM64 import issues on Python 3.13. A future Python
 version or a different vector store would unblock it.
 
-Real-time split-screen display. A planned Pygame UI for the KYY 15.6 inch
+Real time split screen display. A planned Pygame UI for the KYY 15.6 inch
 monitor with scrolling conversation panel and live camera feed was not
 built.
 
 Pirate voice. Pirate mode currently uses the same Piper speaker as
 professional and playful. A separate gravelly voice would land the bit.
 
-Streaming Ollama cancel. Mid-response interrupt would let visitors stop
+Streaming Ollama cancel. Mid response interrupt would let visitors stop
 IRIS when answers run long.
 
-For the complete deferred-work list, see [CHANGELOG.md](CHANGELOG.md).
+For the complete deferred work list, see [CHANGELOG.md](CHANGELOG.md).
 
 ## License
 
@@ -305,8 +305,8 @@ incorporating Echo IRIS into a proprietary product.
 Professor Olivera, ECE 202, Colorado State University. Steve Henry,
 Engineer in Residence. Arjunbabu Vasantharaj, ECE 202 TA. Jackie at the
 ECE department for purchasing coordination. The CSU Engineering I2P Lab
-for 3D printer access. The green Jeep team for the cross-collaboration on
-voice-controlled motor drive. The open source projects that made this
+for 3D printer access. The green Jeep team for the cross collaboration on
+voice controlled motor drive. The open source projects that made this
 possible: Ollama, Vosk, Piper, Ultralytics, the Raspberry Pi Foundation,
 and Sony for the IMX500.
 
