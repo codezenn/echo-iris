@@ -1,13 +1,13 @@
 # Contributing to Echo IRIS
 
-Echo IRIS is the end-of-semester deliverable for ECE 202 Group 35 at
+Echo IRIS is the end of semester deliverable for ECE 202 Group 35 at
 Colorado State University, Spring 2026. The project is not under active
 development. The repository is published as a permanent reference for
 future ECE 202 teams, the open source community, and CSU department
 recruiting.
 
 The original team will respond to issues and pull requests on a
-best-effort basis through the summer of 2026 and may go quiet after that.
+best effort basis through the summer of 2026 and may go quiet after that.
 This document is for anyone picking up the codebase after that point.
 
 ## For Future ECE 202 Teams
@@ -21,7 +21,7 @@ Read these files in order before changing anything:
 `README.md` for the high-level system overview.
 
 `CHANGELOG.md` for what shipped at v1.0.0 and what was deferred. The
-deferred-work section is the natural list of features your team can take on.
+deferred work section is the natural list of features your team can take on.
 
 `docs/architecture.md` for the module walkthrough and the design decisions
 that shaped the system. The "Future Work" section calls out the known
@@ -29,21 +29,21 @@ weak points and the most likely paths to improvement.
 
 `docs/troubleshooting.md` for the gotchas that took the original team time
 to solve. Audio device card swaps on reboot, the IMX500 firmware lock that
-needs a full USB-C power cycle, the Bookworm latin-1 locale crash, and the
-charge-only USB cable trap on the Arduino Nano R4 are all documented.
+needs a full USB C power cycle, the Bookworm latin-1 locale crash, and the
+charge only USB cable trap on the Arduino Nano R4 are all documented.
 
-`docs/setup_guide_16gb.md` for the from-scratch Pi rebuild procedure. If
+`docs/setup_guide_16gb.md` for the from scratch Pi rebuild procedure. If
 you are starting on fresh hardware, this is your sequence of operations.
 
 `hardware/BOM.md` for the parts list with funding sources. Several
 components (the WS2812B LED strip, the PCA9685 servo controller) were
 abandoned and the BOM documents why.
 
-The most valuable extensions Group 35 left for you. Voice-announced YOLO
+The most valuable extensions Group 35 left for you. Voice announced YOLO
 detections (the detection runs continuously today but IRIS does not narrate
 what it sees unless asked). V2V communication via MQTT between the white
-IRIS Jeep and the green Jeep. Autonomous lane-following or
-obstacle-avoidance using the existing motor driver pattern from the green
+IRIS Jeep and the green Jeep. Autonomous lane following or
+obstacle avoidance using the existing motor driver pattern from the green
 Jeep team. A faster text-only LLM swap (gemma3:1b was researched but not
 benchmarked).
 
@@ -64,14 +64,14 @@ The architecture is opinionated for a Raspberry Pi 5 with specific
 peripherals (Sony IMX500 camera, Waveshare USB audio, K1 lavalier mic,
 Arduino Nano R4). Porting to different hardware is straightforward but
 not trivial. Audio device handling in particular assumes the
-mic-and-speaker split visible in `find_usb_audio()` and requires
+mic and speaker split visible in `find_usb_audio()` and requires
 verification on your hardware.
 
-The voice loop assumes a wake-word + listen-window model. If you want
-continuous always-on listening, the loop in `echo_iris_16gb.py` needs a
+The voice loop assumes a wake word + listen window model. If you want
+continuous always on listening, the loop in `echo_iris_16gb.py` needs a
 substantial rewrite.
 
-The DEMO_ANSWERS keyword fast path is project-specific. You will want to
+The DEMO_ANSWERS keyword fast path is project specific. You will want to
 replace its content for your own use case but can keep the pattern.
 
 ## Coding Conventions
@@ -81,14 +81,14 @@ and follows Python defaults more than any explicit guide. If you are
 adding code, the patterns below are what the existing modules follow.
 
 Module imports go at the top of the file, grouped as standard library,
-then third-party, then project-local. The project-local block uses
+then third party, then project local. The project local block uses
 `sys.path.insert` to add `~/echo-iris/software` so modules find each other
 without a package install.
 
 Configuration constants live near the top of each module in `UPPER_SNAKE`,
 with a comment block above describing what may be tuned safely.
 
-Audio settings (frame sizes, sample rates, device names) are hard-coded
+Audio settings (frame sizes, sample rates, device names) are hard coded
 constants rather than runtime arguments. Changing them requires editing
 the script. This is intentional. The original team learned which values
 worked through painful trial and error and pinning them in source prevents
@@ -101,7 +101,7 @@ exports `SoundManager`).
 LLM output and any string headed for `print()` or `speak()` passes through
 the `sanitize()` function in `echo_iris_16gb.py`. The Pi terminal uses
 latin-1 encoding by default and any non-ASCII character (em dash, smart
-quote, emoji) crashes the script. Sanitize is defense-in-depth and is
+quote, emoji) crashes the script. Sanitize is defense in depth and is
 applied at multiple points.
 
 Error handling favors graceful degradation over crashes. If the LLM times
@@ -116,8 +116,8 @@ names over inline explanation. Where comments do appear, they explain
 at 8000 in the 8GB build).
 
 The chat memory pattern uses an atomic write (write to a temp file, then
-rename) to prevent partial-write corruption if the script crashes
-mid-update. New persistent state should follow the same pattern.
+rename) to prevent partial write corruption if the script crashes
+mid update. New persistent state should follow the same pattern.
 
 ## Pull Request Etiquette
 
@@ -147,14 +147,14 @@ and continue independently.
 
 Open issues for bugs, documentation errors, or unclear setup steps. Be
 specific about your hardware (Pi model and RAM, camera, audio devices,
-power supply) since many problems are platform-dependent.
+power supply) since many problems are platform dependent.
 
-For demo-day-related questions, the demo day script in
+For demo day related questions, the demo day script in
 `docs/demo_day_script.md` captures what actually happened including the
 failures. That document may already answer your question.
 
 ## Maintainers
 
-Marc Sibaja, Giovanni Guerra, Obaid Almutairi.
+Marc S., Giovanni G., Obaid A.
 
 ECE 202 | Colorado State University | Spring 2026
