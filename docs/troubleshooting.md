@@ -223,7 +223,7 @@ ollama list
 curl http://localhost:11434/api/tags
 ```
 
-The active models list should include `qwen3.5:2b`,
+The active models list should include `qwen3.5:2b-q4_K_M`,
 `nomic-embed-text:v1.5`, and `qwen3:0.6b`. If the service is up but a
 model is missing, run `ollama pull <model>` to fetch it.
 
@@ -236,7 +236,7 @@ Cause: Ollama loads the model on first request unless the keep-alive
 configuration is set. Loading a 2B model from disk on a Pi 5 takes more
 than the script's default timeout.
 
-Recovery: warm the model before the demo with `ollama run qwen3.5:2b
+Recovery: warm the model before the demo with `ollama run qwen3.5:2b-q4_K_M
 "hello"`. The keep-alive override prevents unload between calls but
 does not avoid the first load. The 16GB setup guide includes this in
 the pre-demo checklist.

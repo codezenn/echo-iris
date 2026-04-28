@@ -42,7 +42,7 @@ Software you will install:
 - Raspberry Pi OS 64-bit Bookworm
 - Vosk small English model
 - Piper TTS with the en_GB-vctk-medium voice
-- Ollama with `qwen3.5:2b`, `qwen3:0.6b`, and `nomic-embed-text:v1.5`
+- Ollama with `qwen3.5:2b-q4_K_M`, `qwen3:0.6b`, and `nomic-embed-text:v1.5`
 - Picamera2, libcamera, rpicam-apps, plus IMX500 firmware tools
 - arduino-cli with the Renesas UNO board package
 
@@ -226,12 +226,12 @@ will be empty until you pull models in the next step.
 ## Step 8: Pull Ollama models
 
 ```
-ollama pull qwen3.5:2b
+ollama pull qwen3.5:2b-q4_K_M
 ollama pull qwen3:0.6b
 ollama pull nomic-embed-text:v1.5
 ```
 
-The `qwen3.5:2b` model is the primary LLM and the vision model. It is
+The `qwen3.5:2b-q4_K_M` model is the primary LLM and the vision model. It is
 roughly 2.7 GB. The `qwen3:0.6b` model is the lightweight fallback
 used by the RAG module if RAG is later re-enabled. The `nomic-embed-
 text:v1.5` model produces embeddings for the RAG knowledge base.
@@ -246,7 +246,7 @@ Warm the primary model so the first script run does not hit a
 cold-start timeout:
 
 ```
-ollama run qwen3.5:2b "hello"
+ollama run qwen3.5:2b-q4_K_M "hello"
 ```
 
 ## Step 9: Configure the Ollama systemd override
@@ -424,7 +424,7 @@ ls /dev/ttyACM*
 i2cdetect -y 1
 ollama list
 rpicam-hello --nopreview -t 2000
-ollama run qwen3.5:2b "hello"
+ollama run qwen3.5:2b-q4_K_M "hello"
 ```
 
 Each command should succeed. The throttle should read `0x0`. The

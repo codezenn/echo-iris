@@ -49,7 +49,7 @@ flowchart LR
     EASTER[easter_eggs]
     DEMOAN[DEMO_ANSWERS<br/>keyword match]
     MEM[chat_memory]
-    OLL[Ollama qwen3.5:2b]
+    OLL[Ollama qwen3.5:2b-q4_K_M]
     VISION[Triggered vision<br/>rpicam-still + LLM]
 
     YOLO[IMX500 NPU<br/>YOLO11n continuous]
@@ -81,7 +81,7 @@ runs continuously on the IMX500 on-camera neural processor at zero Pi
 CPU cost and renders bounding boxes to the HDMI display through the
 Picamera2 preview pipeline. The triggered-vision path through `rpicam-
 still` only fires when the dispatch chain detects a vision-intent query,
-captures one still, and passes it as a base64 image to qwen3.5:2b for
+captures one still, and passes it as a base64 image to qwen3.5:2b-q4_K_M for
 scene description. These are independent. The continuous YOLO path
 keeps running while the LLM is waiting on a vision response.
 
@@ -338,7 +338,7 @@ and ongoing API cost. A future team could add it as a config flag.
 
 A swap to a smaller text-only LLM such as `gemma3:1b` could improve
 latency on the LLM path at the cost of response quality. The current
-qwen3.5:2b chosen for vision capability already runs the text path and
+qwen3.5:2b-q4_K_M chosen for vision capability already runs the text path and
 swapping the text model alone is a non-trivial refactor.
 
 An evdev-based hotkey bypass would let a presenter trigger fixed
@@ -372,11 +372,3 @@ prototype.
 is not future work. The Kaldi LinearResample in the audio path is
 stable and measured.
 
-## Document footnotes
-
-The Ollama model name above is recorded as `qwen3.5:2b` per the v3.4
-reconstructed source in the 16GBPipelineFixes synthesis. An earlier
-v2 handoff specified `qwen3.5:2b-q4_K_M` with explicit quantization
-suffix. The actual line in the deployed v3.4 source is the truth. The
-ATTRIBUTIONS file flags this same point and a one-command verification
-on the Pi resolves it for both files.
