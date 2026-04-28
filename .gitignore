@@ -205,11 +205,22 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# OS metadata
 .DS_Store
 
-# Echo IRIS project-specific exclusions
+# Echo IRIS - runtime state and local artifacts
+software/chat_memory.json
+software/conversation_stats.json
+software/personalities.json
+software/*_backup.py
+software/*.bak
+software/test_resample_vosk_v1.py
+software/sounds/staging/
 iris_rag_cache.json
-.env
+~/iris_chat_log.txt
+
+# Echo IRIS - large model files and recordings
 *.onnx
 model/
 iris_voice/
