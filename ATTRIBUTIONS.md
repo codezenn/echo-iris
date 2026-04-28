@@ -62,7 +62,7 @@ subprocess and its raw 22050 Hz 16-bit signed mono PCM output is fed into a
 pygame.mixer.Sound buffer for playback through the Waveshare USB sound card.
 
 Note. The original rhasspy/piper repository is now archived. Active
-development has moved to OHF-Voice/piper1-gpl, which uses the GPL-licensed
+development has moved to OHF-Voice/piper1-gpl, which uses the GPL licensed
 espeak-ng phonemizer. Echo IRIS uses the older MIT-licensed release
 2023.11.14-2 binary.
 
@@ -136,7 +136,7 @@ doubling artifacts with the K1 wireless lavalier microphone.
 License: GNU Affero General Public License v3.0 (AGPL-3.0)
 Upstream: ultralytics/ultralytics, https://github.com/ultralytics/ultralytics
 Used as: real-time object detection model. YOLO11n weights are deployed to
-the Sony IMX500 on-camera neural processor in Sony's RPK format. Detection
+the Sony IMX500 on camera neural processor in Sony's RPK format. Detection
 runs continuously on the camera silicon while the voice agent is active,
 producing labeled bounding boxes on the live preview window so visitors can
 see themselves and surrounding objects highlighted while chatting with IRIS.
@@ -244,7 +244,7 @@ before commit.
 
 The architectural pattern of routing TTS through a single pygame mixer to
 avoid ALSA contention with simultaneous sound effect playback is adapted
-from BMO by brenpoly, https://github.com/brenpoly/BMO. The audio resampling
+from BMO by brenpoly, https://www.youtube.com/@brenpoly The audio resampling
 approach, the sound effect timing pattern, and the chat memory persistence
 pattern were also informed by that project.
 
