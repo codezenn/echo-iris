@@ -1,4 +1,4 @@
-# Echo IRIS
+<img width="324" height="389" alt="image" src="https://github.com/user-attachments/assets/6c666992-ba99-47fc-94f5-d3c865a56846" /># Echo IRIS
 
 A voice interactive AI agent on a mini-Jeep platform. Built for ECE 202 at
 Colorado State University, Spring 2026. This is the end-of-semester archive
@@ -35,9 +35,7 @@ and IRIS uses the qwen3.5:2b vision model to describe the scene in spoken
 English. Switch personalities by saying "switch to pirate mode" or "go
 playful." Everything runs locally on the Pi with no cloud dependency.
 
-## Demo Video
-
-[Demo video link to be added]
+<img width="648" height="778" alt="Picture1" src="https://github.com/user-attachments/assets/3c6c4ea0-048e-467c-aaee-ffaf2ea344c3" />
 
 ## Team
 
