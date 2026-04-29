@@ -1,4 +1,4 @@
-<img width="324" height="389" alt="image" src="https://github.com/user-attachments/assets/6c666992-ba99-47fc-94f5-d3c865a56846" /># Echo IRIS
+# Echo IRIS
 
 A voice interactive AI agent on a mini-Jeep platform. Built for ECE 202 at
 Colorado State University, Spring 2026. This is the end-of-semester archive
@@ -19,6 +19,8 @@ Intelligent Raspberry-Pi Imaging System.
 | R      | Raspberry Pi |
 | I      | Imaging      |
 | S      | System       |
+
+<img width="324" height="389" alt="image" src="https://github.com/user-attachments/assets/6c666992-ba99-47fc-94f5-d3c865a56846" />
 
 ## What It Does
 
