@@ -20,8 +20,6 @@ Intelligent Raspberry-Pi Imaging System.
 | I      | Imaging      |
 | S      | System       |
 
-<img width="324" height="389" alt="image" src="https://github.com/user-attachments/assets/6c666992-ba99-47fc-94f5-d3c865a56846" />
-
 ## What It Does
 
 Walk up to the Jeep, say "hello IRIS," and ask a question. IRIS hears you
